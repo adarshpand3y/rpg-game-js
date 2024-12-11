@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    image-rendering: pixelated;
 }
 
 .main {
@@ -35,4 +36,66 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.water {
+    background-image: url("/Images/ocean.gif");
+}
+
+.land {
+    background-image: url("/Images/grass.png");
+}
+
+.player {
+    height: 90%;
+    width: 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    bottom: -7px;
+    left: 6px;
+    transform-origin: center center;
+    animation: player-breathe 1s linear infinite;
+}
+
+.player-w {
+    background-image: url("/Images/Character/character_up.png");
+}
+
+.player-s {
+    background-image: url("/Images/Character/character_down.png");
+}
+
+.player-a {
+    background-image: url("/Images/Character/character_left.png");
+}
+
+.player-d {
+    background-image: url("/Images/Character/character_right.png");
+}
+
+@keyframes player-breathe {
+    0% {
+        height: 90%;
+        width: 90%;
+        bottom: -7px;
+        left: 6px;
+    }
+
+    50% {
+        height: 90%;
+        width: 90%;
+        bottom: -5px;
+        left: 6px;
+    }
+
+    0% {
+        height: 90%;
+        width: 90%;
+        bottom: -7px;
+        left: 6px;
+    }
 }

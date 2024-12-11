@@ -10,6 +10,7 @@ const Grid = () => {
     const { rows, cols, world } = worldData;
     const [playerLoc, setPlayerLoc] = useState([9, 9]);
     const [isKeyPressed, setIsKeyPressed] = useState(false);
+    const [lastMove, setlastMove] = useState("d");
 
     const gridHeight = 9;
     const gridWidth = 15;
@@ -31,15 +32,19 @@ const Grid = () => {
 
                 if (key === 'w' && world[newRow - 1] && world[newRow - 1][newCol] !== "W") {
                     newPlayerLoc = [Math.max(0, newRow - 1), newCol];
+                    setlastMove("w");
                 }
                 else if (key === 's' && world[newRow + 1] && world[newRow + 1][newCol] !== "W") {
                     newPlayerLoc = [Math.min(worldData['rows'], newRow + 1), newCol];
+                    setlastMove("s");
                 }
                 else if (key === 'a' && world[newRow] && world[newRow][newCol - 1] !== "W") {
                     newPlayerLoc = [newRow, Math.max(0, newCol - 1)];
+                    setlastMove("a");
                 }
                 else if (key === 'd' && world[newRow] && world[newRow][newCol + 1] !== "W") {
                     newPlayerLoc = [newRow, Math.min(worldData['cols'], newCol + 1)];
+                    setlastMove("d");
                 }
 
                 return newPlayerLoc;
@@ -78,6 +83,7 @@ const Grid = () => {
                         indexX={row}
                         indexY={col}
                         playerLoc={playerLoc}
+                        lastMove={lastMove}
                     />
                 );
             }
@@ -96,6 +102,7 @@ const Grid = () => {
                 {renderGrid()}
             </div>
             {debug && <p>DEBUG PosX: {playerLoc[0]}, PosY: {playerLoc[1]}, halfGridHeight: {halfGridHeight}, halfGridWidth: {halfGridWidth}</p>}
+            {debug && <p>DEBUG Last move: {lastMove}</p>}
         </>
     );
 };

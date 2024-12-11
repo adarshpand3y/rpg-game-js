@@ -1,29 +1,23 @@
 import React from 'react';
-import grass from './Images/grass.png';
-import ocean from './Images/ocean.gif';
 
-const Tile = ({ character, playerLoc, indexX, indexY }) => {
+const Tile = ({ character, playerLoc, indexX, indexY, lastMove }) => {
 
-  const getBgUrl = () => {
-    if (playerLoc[0] !== indexX || playerLoc[1] !== indexY) {
-      // Current cell is not player
-      if(character == "W") {
-        return ocean.src;
-      }
-      else if(character == "L") {
-        return grass.src;
-      }
+  const getClass = () => {
+    if(character == "W") {
+      return "water";
     }
-    else return "#fff"
+    else if(character == "L") {
+      return "land";
+    }
   }
 
   return (
-    <div className='tile'
-      style={{
-        backgroundImage: `url(${getBgUrl()})`
-      }}
-    >
+    <div className={`tile ${getClass()}`}>
+      {(playerLoc[0] === indexX && playerLoc[1] === indexY)?
+      <div className={`player player-${lastMove}`}>
         {/* {character} */}
+      </div>
+      : "" }
     </div>
   );
 };
