@@ -49,8 +49,8 @@
 }
 
 .player {
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -79,22 +79,22 @@
 
 @keyframes player-breathe {
     0% {
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
         bottom: -7px;
         left: 6px;
     }
 
     50% {
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
         bottom: -5px;
         left: 6px;
     }
 
     0% {
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
         bottom: -7px;
         left: 6px;
     }
